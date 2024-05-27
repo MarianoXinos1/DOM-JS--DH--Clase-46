@@ -5,6 +5,7 @@ const { Op } = require("sequelize");
 const moment = require('moment');
 
 
+
 //Aqui tienen otra forma de llamar a cada uno de los modelos
 const Movies = db.Movie;
 const Genres = db.Genre;
@@ -56,8 +57,8 @@ const moviesController = {
     },
     //Aqui dispongo las rutas para trabajar con el CRUD
     add: function (req, res) {
-        let promGenres = Genres.findAll();
-        let promActors = Actors.findAll();
+        let promGenres = db.Genre.findAll();
+        let promActors = db.Actor.findAll();
         
         Promise
         .all([promGenres, promActors])
