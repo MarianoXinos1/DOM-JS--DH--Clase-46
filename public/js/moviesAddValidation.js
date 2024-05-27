@@ -17,14 +17,17 @@ inputTitle.focus();  // Para cuando cargue la pagina se posicione en x input.
 
 let inputFields = document.querySelectorAll('input');
 
+let errorMessages = document.querySelectorAll('.error-message');
 
-inputFields.forEach(inputField => {
+
+inputFields.forEach((inputField, index) => {
     inputField.addEventListener('input', function(evento) {   // Evento input: se dispara cada vez que el valor de un input cambia, validacion tiempo real para el usuariio.
         if (inputField.value == "") {
             inputField.classList.add('is-invalid');
-            alert('Este campo es obligatorio');
+            errorMessages[index].textContent = 'Este campo es obligatorio';
         } else {
             inputField.classList.remove('is-invalid');
+            errorMessages[index].textContent = 'Este campo es obligatorio';
         }
     });
 });
@@ -33,10 +36,11 @@ inputFields.forEach(inputField => {
 formulario.addEventListener('submit', function(evento){
     let EmptyField = false;
     
-    inputFields.forEach(inputField => {
+    inputFields.forEach((inputField, index) => {
         if (inputField.value == "") {
             evento.preventDefault();
             inputField.classList.add('is-invalid');
+            errorMessages[index].textContent = 'Este campo es obligatorio';
             EmptyField = true;
         }
     });

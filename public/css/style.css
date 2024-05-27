@@ -113,3 +113,8 @@ input, select{
   text-align: center;
   border-radius: 10px;
 }
+
+.error-message {
+  display: block;
+  color: #842029;
+}
