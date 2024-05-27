@@ -102,7 +102,10 @@ input, select{
 
 .is-invalid {
   color: #842029;
-}
+  border: 2px solid #842029;
+ 
+ } ;
+
 
 .alert-warning{
   color:#842029;

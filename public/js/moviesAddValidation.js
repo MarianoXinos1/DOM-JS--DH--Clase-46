@@ -11,22 +11,40 @@ window.onload = function(){
 //-------------------DE REGISTRO DE PELÍCULAS------------------//    
 
 console.log("El script se está cargando");    // Se ve solo Consola Cliente
+
 let inputTitle = document.querySelector('#title');
-inputTitle.focus();
+inputTitle.focus();  // Para cuando cargue la pagina se posicione en x input.
+
+let inputFields = document.querySelectorAll('input');
+
+
+inputFields.forEach(inputField => {
+    inputField.addEventListener('input', function(evento) {   // Evento input: se dispara cada vez que el valor de un input cambia, validacion tiempo real para el usuariio.
+        if (inputField.value == "") {
+            inputField.classList.add('is-invalid');
+            alert('Este campo es obligatorio');
+        } else {
+            inputField.classList.remove('is-invalid');
+        }
+    });
+});
+
 
 formulario.addEventListener('submit', function(evento){
-
-    let inputFields = document.querySelectorAll('input');
-
-    for (let i = 0; i < inputFields.length; i++) {
-        console.log(inputFields[i].value);
-        if (inputFields[i].value == "") {
+    let EmptyField = false;
+    
+    inputFields.forEach(inputField => {
+        if (inputField.value == "") {
             evento.preventDefault();
-            alert('Todos los campos son obligatorios');
-            return
+            inputField.classList.add('is-invalid');
+            EmptyField = true;
         }
+    });
+
+    if (EmptyField) {
+        alert('Todos los campos son obligatorios');
     }
-})
+});
 
 
 
