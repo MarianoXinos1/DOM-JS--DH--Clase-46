@@ -56,7 +56,7 @@ inputFields.forEach((inputField, index) => {
                 inputField.classList.add('is-valid'); 
             }
         }
-        ulErrors.classList.add('alert-warning');
+        
 
 
     });
@@ -75,7 +75,7 @@ formulario.addEventListener('submit', function(evento){
         }
     });
 
-    let invalidInputs = document.querySelectorAll('.is-invalid');
+
 
     if (EmptyField) {
         alert('Todos los campos son obligatorios');
